@@ -5,8 +5,64 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VerySimpleInvoicing.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="650" Width="1000">
     <Grid>
-
+        <Grid>
+            <TabControl>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Invoices"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="250"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Border Grid.Column="1" Grid.RowSpan="4" BorderBrush="LightGray" BorderThickness="1,0,0,0" Background="{x:Null}" />
+                        <StackPanel Grid.Column="0" Grid.Row="0">
+                            <Grid Height="80">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0" Grid.Row="0" Content="2022001" />
+                                <Label Grid.Column="1" Grid.Row="0" Content="02.01.2022" />
+                                <Label Grid.Column="0" Grid.Row="1" Content="Company Inc." />
+                                <Label Grid.Column="0" Grid.Row="2" Content="Issued" />
+                                <Label Grid.Column="2" Grid.Row="2" Content="2000.00 EUR" />
+                            </Grid>
+                            <Button Height="50" >Show Bounding Box</Button>
+                            <Button Height="50" >Show Bounding Box</Button>
+                            <Button Height="50" >Show Bounding Box</Button>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Customers" />
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="My companies" />
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+            </TabControl>
+        </Grid>
     </Grid>
 </Window>
