@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VerySimpleInvoicing.Desktop"
         mc:Ignorable="d"
-        Title="Very Simple Invoicing" Height="650" Width="1000">
+        Title="Very Simple Invoicing" Height="850" Width="1200">
     <Grid>
         <Grid>
             <TabControl>
@@ -15,7 +15,7 @@
                             <TextBlock Text="Invoices"/>
                         </StackPanel>
                     </TabItem.Header>
-                    <Grid>
+                    <Grid Background="LightGray">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="250"/>
                             <ColumnDefinition />
@@ -23,30 +23,117 @@
                         <Grid.RowDefinitions>
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                        <Border Grid.Column="1" Grid.RowSpan="4" BorderBrush="LightGray" BorderThickness="1,0,0,0" Background="{x:Null}" />
-                        <StackPanel Grid.Column="0" Grid.Row="0">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition />
-                                    <RowDefinition />
-                                    <RowDefinition />
-                                </Grid.RowDefinitions>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="2022001" FontSize="10" Foreground="Gray" />
-                                    <Border BorderBrush="LightGray" BorderThickness="1,0,0,0" Height="18" Background="{x:Null}" />
-                                    <Label Content="02.01.2022" FontSize="10" Foreground="Gray" />
+                        <ListView Grid.Column="0" Grid.Row="0" Background="White" HorizontalContentAlignment="Stretch" Name="lvDataBinding">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Label Content="2022001" FontSize="10" Foreground="Gray" />
+                                            <Border BorderBrush="LightGray" BorderThickness="1,0,0,0" Height="18" Background="{x:Null}" />
+                                            <Label Content="02.01.2022" FontSize="10" Foreground="Gray" />
+                                        </StackPanel>
+                                        <Label Grid.Column="0" Grid.Row="1" Content="{Binding CustomerName}" FontWeight="Bold" />
+                                        <Label Grid.Column="0" Grid.Row="2" Content="Issued" FontSize="10" Foreground="LightGray" />
+                                        <Menu Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">
+                                            <MenuItem HorizontalContentAlignment="Right" Header="...">
+                                                <MenuItem Header="Duplicate" />
+                                                <MenuItem Header="Download PDF" />
+                                                <MenuItem Header="Delete" />
+                                            </MenuItem>
+                                        </Menu>
+                                        <Label Grid.Column="2" Grid.Row="2" HorizontalContentAlignment="Right" Content="2000.00 EUR" />
+                                        <Border Grid.Row="2" Grid.ColumnSpan="2" BorderBrush="LightGray" BorderThickness="0,0,0,1" Background="{x:Null}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <Grid Grid.Column="1" Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Border VerticalAlignment="Top" Background="White" Margin="10" Padding="10" Grid.Column="0" Grid.Row="0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <StackPanel Grid.Column="0" Grid.Row="0">
+                                        <DockPanel>
+                                            <Label Content="Customer"/>
+                                            <Button Content="Add new" Style="{StaticResource LinkButton}" HorizontalAlignment="Right"/>
+                                        </DockPanel>
+                                        <ComboBox Grid.Column="0" Grid.Row="0"/>
+                                        <Label Content="Issue date" Margin="0,10,0,0" />
+                                        <DatePicker Width="200" HorizontalAlignment="Left" />
+                                        <Label Content="Delivery date" Margin="0,10,0,0" />
+                                        <DatePicker Width="200" HorizontalAlignment="Left" />
+                                        <Label Content="Due in (days)" Margin="0,10,0,0"/>
+                                        <TextBox Width="200" HorizontalAlignment="Left" />
+                                        <Label Content="17.04.2022" Margin="0" Foreground="DimGray" />
+                                        <DockPanel Margin="0,10,0,0">
+                                            <StackPanel>
+                                                <Label Content="Payment method" />
+                                                <ComboBox Width="200" />
+                                            </StackPanel>
+                                            <StackPanel HorizontalAlignment="Right">
+                                                <Label Content="Currency" />
+                                                <TextBox Width="50"  />
+                                            </StackPanel>
+                                        </DockPanel>
+                                        <DockPanel Margin="0,10,0,0">
+                                            <StackPanel>
+                                                <Label Content="IBAN" />
+                                                <TextBox Width="200" />
+                                            </StackPanel>
+                                            <StackPanel HorizontalAlignment="Right">
+                                                <Label Content="PO number" />
+                                                <TextBox Width="200"  />
+                                            </StackPanel>
+                                        </DockPanel>
+                                        <StackPanel HorizontalAlignment="Right" Margin="0,10,0,0">
+                                            <Label Content="Order number" />
+                                            <TextBox Width="200"  />
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel HorizontalAlignment="Right" Grid.Column="1" Grid.Row="0">
+                                        <DockPanel>
+                                            <Label Content="Supplier" />
+                                            <Button Content="Add new" Style="{StaticResource LinkButton}" HorizontalAlignment="Right"/>
+                                        </DockPanel>
+                                        <ComboBox Width="200"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                            <Border VerticalAlignment="Top" Background="White" Margin="10" Padding="10" Grid.Column="0" Grid.Row="1">
+                                <StackPanel>
+                                    <Label Content="Items" />
+                                    <DataGrid Name="dgItems" />
                                 </StackPanel>
-                                <Label Grid.Column="0" Grid.Row="1" Content="Company Inc." FontWeight="Bold" />
-                                <Label Grid.Column="0" Grid.Row="2" Content="Issued" FontSize="10" Foreground="LightGray" />
-                                <Label Grid.Column="2" Grid.Row="2" HorizontalContentAlignment="Right" Content="2000.00 EUR" />
-                                <Border Grid.Row="2" Grid.ColumnSpan="2" BorderBrush="LightGray" BorderThickness="0,0,0,1" Background="{x:Null}" />
-
-                            </Grid>
-                        </StackPanel>
+                            </Border>
+                            <Border Background="White" Height="50" Padding="10" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="2">
+                                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                    <Button Content="Cancel" Padding="10,0,10,0"/>
+                                    <Button Content="Save" Margin="10,0,0,0" Padding="10,0,10,0"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
                     </Grid>
                 </TabItem>
                 <TabItem>
