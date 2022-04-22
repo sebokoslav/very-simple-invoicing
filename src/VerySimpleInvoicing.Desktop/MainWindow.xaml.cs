@@ -24,17 +24,6 @@ namespace VerySimpleInvoicing.Desktop
         public MainWindow()
         {
             InitializeComponent();
-            List<InvoiceModel> invoices = new List<InvoiceModel>();
-            invoices.Add(new InvoiceModel() { CustomerName = "Company Inc." });
-            invoices.Add(new InvoiceModel() { CustomerName = "Company Inc." });
-            invoices.Add(new InvoiceModel() { CustomerName = "Company Inc." });
-            invoices.Add(new InvoiceModel() { CustomerName = "Company Inc." });
-            invoices.Add(new InvoiceModel() { CustomerName = "Company Inc." });
-            invoices.Add(new InvoiceModel() { CustomerName = "Company Inc." });
-            invoices.Add(new InvoiceModel() { CustomerName = "Company Inc." });
-            invoices.Add(new InvoiceModel() { CustomerName = "Another Company Inc." });
-            lvDataBinding.ItemsSource = invoices;
-            dgItems.ItemsSource = invoices;
         }
     }
 }
