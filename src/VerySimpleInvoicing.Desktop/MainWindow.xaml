@@ -24,6 +24,7 @@
                             <TextBlock Text="Customers" />
                         </StackPanel>
                     </TabItem.Header>
+                    <usercontrols:CustomersControl />
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
@@ -31,6 +32,7 @@
                             <TextBlock Text="My companies" />
                         </StackPanel>
                     </TabItem.Header>
+                    <usercontrols:MyCompaniesControl />
                 </TabItem>
             </TabControl>
         </Grid>

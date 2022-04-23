@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="VerySimpleInvoicing.Desktop.UserControls.InvoicesControl"
+﻿<UserControl x:Class="VerySimpleInvoicing.Desktop.UserControls.MyCompaniesControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -66,57 +66,45 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Column="0" Grid.Row="0">
-                        <DockPanel>
-                            <Label Content="Customer"/>
-                            <Button Content="Add new" Style="{StaticResource LinkButton}" HorizontalAlignment="Right"/>
-                        </DockPanel>
-                        <ComboBox />
-                        <Label Content="Issue date" Margin="0,10,0,0" />
-                        <DatePicker Width="200" HorizontalAlignment="Left" />
-                        <Label Content="Delivery date" Margin="0,10,0,0" />
-                        <DatePicker Width="200" HorizontalAlignment="Left" />
-                        <Label Content="Due in (days)" Margin="0,10,0,0"/>
-                        <TextBox Width="200" HorizontalAlignment="Left" />
-                        <Label Content="17.04.2022" Margin="0" Foreground="DimGray" />
+                        <Label Content="Company name" />
+                        <TextBox HorizontalAlignment="Stretch" />
+                        <Label Content="Contact person" Margin="0,10,0,0" />
+                        <TextBox HorizontalAlignment="Stretch" />
+                        <Label Content="Street and house number" Margin="0,10,0,0" />
+                        <TextBox HorizontalAlignment="Stretch" />
                         <DockPanel Margin="0,10,0,0">
                             <StackPanel>
-                                <Label Content="Payment method" />
-                                <ComboBox Width="200" />
+                                <Label Content="Zip/Postal code" Margin="0,10,0,0" />
+                                <TextBox Width="100" HorizontalAlignment="Stretch" />
                             </StackPanel>
-                            <StackPanel HorizontalAlignment="Right">
-                                <Label Content="Currency" />
-                                <TextBox Width="50"  />
+                            <StackPanel HorizontalAlignment="Stretch" Margin="10,0,0,0">
+                                <Label Content="City" Margin="0,10,0,0" />
+                                <TextBox HorizontalAlignment="Stretch" />
                             </StackPanel>
                         </DockPanel>
+                        <Label Content="Country" Margin="0,10,0,0" />
+                        <TextBox HorizontalAlignment="Stretch" />
                         <DockPanel Margin="0,10,0,0">
                             <StackPanel>
-                                <Label Content="IBAN" />
+                                <Label Content="Business ID" />
                                 <TextBox Width="200" />
                             </StackPanel>
                             <StackPanel HorizontalAlignment="Right">
-                                <Label Content="PO number" />
+                                <Label Content="Tax ID" />
                                 <TextBox Width="200"  />
                             </StackPanel>
                         </DockPanel>
-                        <StackPanel HorizontalAlignment="Right" Margin="0,10,0,0">
-                            <Label Content="Order number" />
-                            <TextBox Width="200"  />
+                        <Label Content="VAT registration number" Margin="0,10,0,0" />
+                        <TextBox HorizontalAlignment="Stretch" />
+                        <Label Content="Signed in a register" Margin="0,10,0,0" />
+                        <TextBox HorizontalAlignment="Stretch" />
+                        <Label Content="Signature/stamp" Margin="0,10,0,0" />
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="Browse" Padding="10,0,10,0" />
+                            <Label Content="No file choosen..."/>
                         </StackPanel>
                     </StackPanel>
-                    <StackPanel HorizontalAlignment="Right" Grid.Column="1" Grid.Row="0">
-                        <DockPanel>
-                            <Label Content="Supplier" />
-                            <Button Content="Add new" Style="{StaticResource LinkButton}" HorizontalAlignment="Right"/>
-                        </DockPanel>
-                        <ComboBox Width="200"/>
-                    </StackPanel>
                 </Grid>
-            </Border>
-            <Border VerticalAlignment="Top" Background="White" Margin="10" Padding="10" Grid.Column="0" Grid.Row="1">
-                <StackPanel>
-                    <Label Content="Items" />
-                    <DataGrid Name="dgItems" />
-                </StackPanel>
             </Border>
             <Border Background="White" Height="50" Padding="10" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="2">
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
