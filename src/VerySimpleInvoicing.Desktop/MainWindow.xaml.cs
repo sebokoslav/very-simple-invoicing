@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VerySimpleInvoicing.Desktop.DAL;
+using VerySimpleInvoicing.Desktop.Entities;
 using VerySimpleInvoicing.Desktop.Models;
 
 namespace VerySimpleInvoicing.Desktop
@@ -24,6 +27,20 @@ namespace VerySimpleInvoicing.Desktop
         public MainWindow()
         {
             InitializeComponent();
+            try
+            {
+                ApplicationDbContext dbContext = App.Current.Services.GetService<ApplicationDbContext>();
+                if (!dbContext.Settings.Any(s => s.Language == "SK")) //TODO: test, delete!
+                {
+                    dbContext.Settings.Add(new Settings() { Language = "SK" });
+                    dbContext.SaveChanges();
+                }
+            }
+            catch(Exception e)
+            {
+
+            }
+            
         }
     }
 }
